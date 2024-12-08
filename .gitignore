@@ -3,6 +3,7 @@
 /public/storage
 /storage/*.key
 /public/bundle/*.js
+/resources/assets/output.css
 /vendor
 .env
 .env.backup
