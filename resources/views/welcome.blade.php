@@ -12,6 +12,6 @@
     </head>
     <body class="antialiased">
     <div id="root"></div>
-    <script src="{{ asset('js/index.js') }}"></script>
+    <script src="{{ asset('bundle/index.js') }}"></script>
     </body>
 </html>
