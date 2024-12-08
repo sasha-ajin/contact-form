@@ -1,7 +1,7 @@
 import React from "react";
 
 const App = () => {
-    return <h1>Hello, React with TypeScripdt!</h1>;
+    return <h1 className="text-3xl font-bold underline">Hello, React with TypeScriptk</h1>;
 };
 
 export default App;
