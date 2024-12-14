@@ -1,8 +1,8 @@
 import React, {useMemo, useState} from 'react';
 import {ContactResponse, ContactValues} from "@/modules/contact/models";
-import {FormTextControl} from "@/components/FormTextControl/FormTextControl";
+import {FormTextControl} from "@/components/Form/FormTextControl";
 import '@/utils/setupValidator'
-import {useForm} from "@/utils/useForm";
+import {useForm} from "@/components/Form/useForm";
 import {FormikProvider} from "formik";
 import Form from "react-bootstrap/Form";
 import Container from 'react-bootstrap/Container';
