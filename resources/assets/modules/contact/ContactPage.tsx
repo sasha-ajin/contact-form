@@ -47,8 +47,8 @@ export function ContactPage() {
         <>
             <FormikProvider value={formik}>
                 <Form onSubmit={formik.handleSubmit}>
-                    <Container className="d-flex pt-5 justify-content-center">
-                        <Col md={6} lg={4} sm={12}>
+                    <Container className="d-flex mt-5 justify-content-center">
+                        <Col md={6} lg={4} sm={12} className="shadow rounded p-2">
                             <Form.Group className="mb-3" controlId="name">
                                 <Form.Label>Name</Form.Label>
                                 <FormTextControl name="name" placeholder="Enter name"/>
