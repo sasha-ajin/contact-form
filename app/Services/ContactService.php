@@ -2,9 +2,11 @@
 
 namespace App\Services;
 
+use App\Mail\ContactMail;
 use Exception;
 use App\Models\Contact;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class ContactService
 {
@@ -26,13 +28,15 @@ class ContactService
             $newContact->phone = $details['phone'];
             $newContact->message = $details['message'];
             $newContact->save();
-
-            return 1;
         }
         catch (Exception $e) {
             Log::error($e);
             throw $e;
         }
 
+        Mail::to('sashaajin@gmail.com')
+            ->send(new ContactMail());
+
+        return 1;
     }
 }
