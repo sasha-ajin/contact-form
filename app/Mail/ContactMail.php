@@ -12,13 +12,16 @@ class ContactMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
+    protected $name;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(string $name)
     {
+        $this->name = $name;
     }
 
     /**
@@ -29,6 +32,8 @@ class ContactMail extends Mailable implements ShouldQueue
     public function build()
     {
         return $this->subject('Contacts | no-reply')
-            ->view('mail.contact');
+            ->view('mail.contact', [
+                'name'=>$this->name
+            ]);
     }
 }

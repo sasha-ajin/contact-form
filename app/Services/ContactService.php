@@ -28,14 +28,13 @@ class ContactService
             $newContact->phone = $details['phone'];
             $newContact->message = $details['message'];
             $newContact->save();
-        }
-        catch (Exception $e) {
+        } catch (Exception $e) {
             Log::error($e);
             throw $e;
         }
 
-        Mail::to('sashaajin@gmail.com')
-            ->send(new ContactMail());
+        Mail::to(env('MAIL_TO_ADDRESS', 'mailtrap@gmail.com'))
+            ->send(new ContactMail($details['name']));
 
         return 1;
     }
