@@ -11,7 +11,7 @@ import Button from "react-bootstrap/Button";
 import * as yup from 'yup';
 import {ContactModal} from "@/modules/contact/ContactModal";
 import {handleBackEndValidation} from "@/utils/handleBackEndValidation";
-import {sendContact} from "@/modules/contact/service";
+import {storeContact} from "@/modules/contact/service";
 
 export function ContactPage() {
     const [isShownModal, setIsShownModal] = useState(false);
@@ -48,7 +48,7 @@ export function ContactPage() {
         validationSchema,
         onSubmit: async (values, formikHelpers) => {
             const submitWithValidation = handleBackEndValidation<ContactValues>(async (values) => {
-                return await sendContact(values);
+                return await storeContact(values);
             });
             const response = (await submitWithValidation(values, formikHelpers)) as ContactResponse;
             if (response) {
