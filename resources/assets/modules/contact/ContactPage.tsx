@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {ContactModal} from "@/components/ContactModal/ContactModal";
 import {ContactValues} from "@/modules/contact/models";
 import {FormTextControl} from "@/components/FormTextControl/FormTextControl";
 import '@/utils/setupValidator'
@@ -10,6 +9,7 @@ import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Button from "react-bootstrap/Button";
 import * as yup from 'yup';
+import {ContactModal} from "@/modules/contact/ContactModal";
 
 
 export function ContactPage() {

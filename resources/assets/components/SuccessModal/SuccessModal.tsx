@@ -1,12 +1,13 @@
 import React from "react";
 import {Modal, Button, CloseButton} from 'react-bootstrap';
 
-type ContactModalProps = {
+type SuccessModalProps = {
+    text: string;
     isShown: boolean;
     onHide: () => void;
 }
 
-export function ContactModal({isShown, onHide}: ContactModalProps) {
+export function SuccessModal({text, isShown, onHide}: SuccessModalProps) {
     return (
         <Modal show={isShown} onHide={onHide} contentClassName="text-center" centered>
             <Modal.Header className="border-0 flex-wrap position-relative">
@@ -16,7 +17,7 @@ export function ContactModal({isShown, onHide}: ContactModalProps) {
                 <CloseButton onClick={onHide}/>
             </Modal.Header>
             <Modal.Body className="p-md-10 pt-md-0">
-                <p className="fs-5">Your contacts were successfully sent</p>
+                <p className="fs-5">{text}</p>
             </Modal.Body>
             <Modal.Footer className="justify-content-center">
                 <Button variant="success" onClick={onHide}>
