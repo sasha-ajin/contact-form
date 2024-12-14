@@ -11,7 +11,6 @@ import Button from "react-bootstrap/Button";
 import * as yup from 'yup';
 import {ContactModal} from "@/modules/contact/ContactModal";
 
-
 export function ContactPage() {
     const [isShownModal, setIsShownModal] = useState(false);
 
