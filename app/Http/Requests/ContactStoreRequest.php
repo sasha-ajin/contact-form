@@ -12,7 +12,7 @@ class ContactStoreRequest extends FormRequest
             'name' => 'required|string|max:50',
             'email' => 'required|email|max:50',
             'phone' => 'required|phone:INTERNATIONAL,BG,US',
-            'message' => 'required|string|max:500',
+            'message' => 'required|string|max:2',
         ];
     }
 }
