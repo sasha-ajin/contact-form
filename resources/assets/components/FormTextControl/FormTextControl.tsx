@@ -1,6 +1,7 @@
 import React from 'react';
 import {Form, FormControlProps as BaseFormControlProps} from 'react-bootstrap';
 import {useFormikContext} from "formik";
+import clsx from 'clsx';
 
 type FormControlProps = Omit<BaseFormControlProps, 'size'> & {
     name: string;
@@ -31,6 +32,11 @@ export function FormTextControl({
                 name={name}
                 onChange={formik.handleChange}
                 value={field.value ?? ''}
+                className={clsx(`form-control`, className, {
+                    'is-invalid': isInvalid,
+                    'form-control-solid': hasSolidBackground,
+                    'form-control-edit': isReadOnly,
+                })}
             />
             {isInvalid && <p className="text-danger">{field.error}</p>}
         </>
