@@ -52,7 +52,7 @@ export function ContactPage() {
             });
             const response = (await submitWithValidation(values, formikHelpers)) as ContactResponse;
             if (response) {
-                formik.resetForm({values});
+                formik.resetForm();
                 handleShowModal()
             }
         },
