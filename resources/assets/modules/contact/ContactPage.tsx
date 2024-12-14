@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {ContactModal} from "@/components/ContactModal/ContactModal";
 import {ContactValues} from "@/modules/contact/models";
-import {FormTextControl} from "@/components/FormControl/FormTextControl";
+import {FormTextControl} from "@/components/FormTextControl/FormTextControl";
 import '@/utils/setupValidator'
 import {useForm} from "@/utils/useForm";
 import {FormikProvider} from "formik";
