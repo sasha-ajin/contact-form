@@ -11,15 +11,17 @@ class ContactController extends Controller
 {
     /**
      * @param  ContactStoreRequest  $request
-     * @return int
+     * @return array
      *
      * @method POST
      * @uri /api/contact
      *
      * @throws Exception
      */
-    public function store(ContactStoreRequest $request): int
+    public function store(ContactStoreRequest $request): array
     {
-        return ContactService::storeDetails($request->all());
+        return [
+            'contactID' => ContactService::storeDetails($request->all())
+        ];
     }
 }

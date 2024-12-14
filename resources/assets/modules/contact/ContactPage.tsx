@@ -1,9 +1,9 @@
-import React, {useMemo, useState} from 'react';
+import React, {useMemo, useState, useCallback} from 'react';
 import {ContactResponse, ContactValues} from "@/modules/contact/models";
 import {FormTextControl} from "@/components/Form/FormTextControl";
 import '@/utils/setupValidator'
 import {useForm} from "@/components/Form/useForm";
-import {FormikProvider} from "formik";
+import {FormikHelpers, FormikProvider} from "formik";
 import Form from "react-bootstrap/Form";
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
@@ -42,11 +42,8 @@ export function ContactPage() {
                 message: yup.string().required().max(500),
             }), []
     )
-
-    const formik = useForm<ContactValues>({
-        initialValues,
-        validationSchema,
-        onSubmit: async (values, formikHelpers) => {
+    const handleSubmit = useCallback(
+        async (values: ContactValues, formikHelpers: FormikHelpers<ContactValues>) => {
             const submitWithValidation = handleBackEndValidation<ContactValues>(async (values) => {
                 return await storeContact(values);
             });
@@ -56,6 +53,13 @@ export function ContactPage() {
                 handleShowModal()
             }
         },
+        [] // eslint-disable-line react-hooks/exhaustive-deps
+    );
+
+    const formik = useForm<ContactValues>({
+        initialValues: initialValues,
+        validationSchema: validationSchema,
+        onSubmit: handleSubmit,
     })
 
     return (
