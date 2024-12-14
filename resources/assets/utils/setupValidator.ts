@@ -1,4 +1,4 @@
-import {isValidPhoneNumber} from 'libphonenumber-js';
+import { isValidPhoneNumber } from 'libphonenumber-js';
 import * as yup from 'yup';
 
 yup.addMethod<ReturnType<typeof yup.mixed>>(
@@ -12,5 +12,5 @@ yup.addMethod<ReturnType<typeof yup.mixed>>(
 
             return isValidPhoneNumber(value as string);
         });
-    }
+    },
 );

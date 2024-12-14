@@ -1,6 +1,6 @@
 import React from 'react';
-import {Form, FormControlProps as BaseFormControlProps} from 'react-bootstrap';
-import {useFormikContext} from "formik";
+import { Form, FormControlProps as BaseFormControlProps } from 'react-bootstrap';
+import { useFormikContext } from 'formik';
 import clsx from 'clsx';
 
 type FormControlProps = Omit<BaseFormControlProps, 'size'> & {
@@ -9,13 +9,7 @@ type FormControlProps = Omit<BaseFormControlProps, 'size'> & {
     hasSolidBackground?: boolean;
 };
 
-export function FormTextControl({
-                                name,
-                                className,
-                                hasSolidBackground = true,
-                                ...props
-                            }:
-                                FormControlProps) {
+export function FormTextControl({ name, className, hasSolidBackground = true, ...props }: FormControlProps) {
     const formik = useFormikContext();
     const field = formik.getFieldMeta<string>(name);
     const fieldProps = formik.getFieldProps<string>(name);
