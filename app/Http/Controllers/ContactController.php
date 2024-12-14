@@ -6,7 +6,6 @@ use App\Http\Requests\ContactStoreRequest;
 use App\Services\ContactService;
 use Exception;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Log;
 
 class ContactController extends Controller
 {

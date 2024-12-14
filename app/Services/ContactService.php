@@ -4,6 +4,7 @@ namespace App\Services;
 
 use Exception;
 use App\Models\Contact;
+use Illuminate\Support\Facades\Log;
 
 class ContactService
 {
@@ -19,12 +20,19 @@ class ContactService
     {
         $newContact = new Contact();
 
-        $newContact->name = $details['name'];
-        $newContact->email = $details['email'];
-        $newContact->phone = $details['phone'];
-        $newContact->message = $details['message'];
-        $newContact->save();
+        try {
+            $newContact->name = $details['name'];
+            $newContact->email = $details['email'];
+            $newContact->phone = $details['phone'];
+            $newContact->message = $details['message'];
+            $newContact->save();
 
-        return 1;
+            return 1;
+        }
+        catch (Exception $e) {
+            Log::error($e);
+            throw $e;
+        }
+
     }
 }
