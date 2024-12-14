@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useMemo, useState} from 'react';
 import {ContactResponse, ContactValues} from "@/modules/contact/models";
 import {FormTextControl} from "@/components/FormTextControl/FormTextControl";
 import '@/utils/setupValidator'
@@ -24,19 +24,28 @@ export function ContactPage() {
         setIsShownModal(false)
     }
 
-    const formik = useForm<ContactValues>({
-        initialValues: {
+    const initialValues = useMemo<ContactValues>(
+        () => ({
             name: '',
             email: '',
             phone: '',
             message: '',
-        },
-        validationSchema: yup.object().shape({
-            name: yup.string().required().max(50),
-            email: yup.string().email().required().max(50),
-            phone: yup.mixed().phone().required(),
-            message: yup.string().required().max(500),
-        }),
+        }), []
+    )
+
+    const validationSchema = useMemo(
+        () =>
+            yup.object().shape({
+                name: yup.string().required().max(50),
+                email: yup.string().email().required().max(50),
+                phone: yup.mixed().phone().required(),
+                message: yup.string().required().max(500),
+            }), []
+    )
+
+    const formik = useForm<ContactValues>({
+        initialValues,
+        validationSchema,
         onSubmit: async (values, formikHelpers) => {
             const submitWithValidation = handleBackEndValidation<ContactValues>(async (values) => {
                 return await sendContact(values);
