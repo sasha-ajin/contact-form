@@ -21,7 +21,6 @@ class ContactController extends Controller
      */
     public function store(ContactStoreRequest $request): int
     {
-        Log::info($request->all());
-        return ContactService::create();
+        return ContactService::storeDetails($request->all());
     }
 }

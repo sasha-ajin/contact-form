@@ -2,16 +2,29 @@
 
 namespace App\Services;
 
+use Exception;
 use App\Models\Contact;
-use Illuminate\Support\Facades\Log;
 
 class ContactService
 {
-    public static function create()
+    /**
+     * Store new contact.
+     *
+     * @param  array  $details
+     * @return int
+     *
+     * @throws Exception
+     */
+    public static function storeDetails(array $details): int
     {
-        Contact::where('id','>',2)
-            ->delete();
-        Log::info(Contact::all());
+        $newContact = new Contact();
+
+        $newContact->name = $details['name'];
+        $newContact->email = $details['email'];
+        $newContact->phone = $details['phone'];
+        $newContact->message = $details['message'];
+        $newContact->save();
+
         return 1;
     }
 }
