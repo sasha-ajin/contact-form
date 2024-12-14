@@ -7,4 +7,4 @@ export interface ContactValues extends FormikValues {
     message: string;
 }
 
-export type ContactResponse = boolean
+export type ContactResponse = number
