@@ -6,14 +6,12 @@ import clsx from 'clsx';
 type FormControlProps = Omit<BaseFormControlProps, 'size'> & {
     name: string;
     className?: string;
-    isReadOnly?: boolean;
     hasSolidBackground?: boolean;
 };
 
 export function FormTextControl({
                                 name,
                                 className,
-                                isReadOnly = false,
                                 hasSolidBackground = true,
                                 ...props
                             }:
@@ -35,7 +33,6 @@ export function FormTextControl({
                 className={clsx(`form-control`, className, {
                     'is-invalid': isInvalid,
                     'form-control-solid': hasSolidBackground,
-                    'form-control-edit': isReadOnly,
                 })}
             />
             {isInvalid && <p className="text-danger">{field.error}</p>}
