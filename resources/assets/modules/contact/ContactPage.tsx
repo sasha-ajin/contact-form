@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {ContactValues} from "@/modules/contact/models";
+import {ContactResponse, ContactValues} from "@/modules/contact/models";
 import {FormTextControl} from "@/components/FormTextControl/FormTextControl";
 import '@/utils/setupValidator'
 import {useForm} from "@/utils/useForm";
@@ -10,6 +10,8 @@ import Col from 'react-bootstrap/Col';
 import Button from "react-bootstrap/Button";
 import * as yup from 'yup';
 import {ContactModal} from "@/modules/contact/ContactModal";
+import {handleBackEndValidation} from "@/utils/handleBackEndValidation";
+import {sendContact} from "@/modules/contact/service";
 
 export function ContactPage() {
     const [isShownModal, setIsShownModal] = useState(false);
@@ -35,10 +37,15 @@ export function ContactPage() {
             phone: yup.mixed().phone().required(),
             message: yup.string().required().max(500),
         }),
-        onSubmit: (values) => {
-            // formik.resetForm({ values: initialValues });
-            console.log('validation passed')
-            handleShowModal()
+        onSubmit: async (values, formikHelpers) => {
+            const submitWithValidation = handleBackEndValidation<ContactValues>(async (values) => {
+                return await sendContact(values);
+            });
+            const response = (await submitWithValidation(values, formikHelpers)) as ContactResponse;
+            if (response) {
+                formik.resetForm({values});
+                handleShowModal()
+            }
         },
     })
 

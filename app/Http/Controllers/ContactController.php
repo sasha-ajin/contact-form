@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Exception;
 use App\Http\Requests\ContactStoreRequest;
 use App\Services\ContactService;
+use Exception;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Log;
 
 class ContactController extends Controller
 {
@@ -13,13 +14,14 @@ class ContactController extends Controller
      * @param  ContactStoreRequest  $request
      * @return int
      *
-     * @method GET
-     * @uri /api/v1/promo-codes
+     * @method POST
+     * @uri /api/contact
      *
      * @throws Exception
      */
     public function store(ContactStoreRequest $request): int
     {
+        Log::info($request->all());
         return ContactService::create();
     }
 }

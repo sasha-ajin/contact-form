@@ -6,3 +6,5 @@ export interface ContactValues extends FormikValues {
     phone: string;
     message: string;
 }
+
+export type ContactResponse = boolean
