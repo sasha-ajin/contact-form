@@ -8,9 +8,20 @@
         "strict": true,
         "baseUrl": "./resources/assets",
         "paths": {
-            "@/*": ["./*"]
+            "@/*": [
+                "./*"
+            ]
         },
-        "skipLibCheck": true
+        "skipLibCheck": true,
+        "typeRoots": [
+            "./resources/assets/types"
+        ]
     },
-    "include": ["./resources/**/*.ts", "./resources/**/*.tsx"],
+    "include": [
+        "./resources/**/*.ts",
+        "./resources/**/*.tsx"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
 }

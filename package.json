@@ -11,11 +11,13 @@
     },
     "devDependencies": {
         "@pmmmwh/react-refresh-webpack-plugin": "^0.5.15",
-        "axios": "^0.21",
+        "@types/axios": "^0.14.4",
+        "axios": "^0.21.4",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
-        "react-refresh": "^0.16.0"
+        "react-refresh": "^0.16.0",
+        "webpack-dev-server": "^5.2.0"
     },
     "dependencies": {
         "@babel/preset-react": "^7.26.3",
@@ -24,12 +26,17 @@
         "@types/react-bootstrap": "^0.32.37",
         "@types/react-dom": "^19.0.1",
         "@types/react-router-dom": "^5.3.3",
+        "@types/yup": "^0.32.0",
         "bootstrap": "^5.3.3",
+        "clsx": "^2.1.1",
+        "formik": "^2.4.6",
+        "libphonenumber-js": "^1.9.22",
         "react": "^19.0.0",
         "react-bootstrap": "^2.10.6",
         "react-dom": "^19.0.0",
         "react-router-dom": "^7.0.2",
         "ts-loader": "^9.5.1",
-        "typescript": "^5.7.2"
+        "typescript": "^5.7.2",
+        "yup": "^1.5.0"
     }
 }

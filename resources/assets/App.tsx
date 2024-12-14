@@ -1,10 +1,11 @@
 import React from "react";
-import {Contact} from "@/modules/contact/Contact";
+import {ContactPage} from "@/modules/contact/ContactPage";
+import '@/utils/setupValidator'
 
 const App = () => {
     return (
         <div className="App">
-            <Contact/>
+            <ContactPage/>
         </div>
     );
 };
