@@ -36,6 +36,6 @@ class ContactService
         Mail::to(env('MAIL_TO_ADDRESS', 'mailtrap@gmail.com'))
             ->send(new ContactMail($details['name']));
 
-        return 1;
+        return $newContact->id;
     }
 }
