@@ -9,11 +9,11 @@ type FormConfig<T extends FormikValues> = {
 };
 
 export function useForm<T extends FormikValues>({
-                               initialValues,
-                               initialStatus,
-                               validationSchema,
-                               onSubmit,
-                           }: FormConfig<T>): FormikContextType<T> {
+    initialValues,
+    initialStatus,
+    validationSchema,
+    onSubmit,
+}: FormConfig<T>): FormikContextType<T> {
     const formik = useFormik({
         initialValues,
         initialStatus,

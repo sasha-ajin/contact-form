@@ -1,8 +1,8 @@
-import {AxiosError} from 'axios';
-import {FormikHelpers, FormikValues} from 'formik';
+import { AxiosError } from 'axios';
+import { FormikHelpers, FormikValues } from 'formik';
 
 export function handleBackEndValidation<T = FormikValues>(
-    onSubmit: (values: T) => Promise<unknown>
+    onSubmit: (values: T) => Promise<unknown>,
 ): (values: T, formikHelpers: FormikHelpers<T>) => Promise<unknown> {
     return async (values: T, formikHelpers: FormikHelpers<T>) => {
         try {
