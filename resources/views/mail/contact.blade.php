@@ -1,1 +1,1 @@
-Your contacts were successfully sent!
+Thank you, {{$name}}. Your contacts were successfully sent!

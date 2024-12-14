@@ -35,7 +35,7 @@ class ContactService
         }
 
         Mail::to('sashaajin@gmail.com')
-            ->send(new ContactMail());
+            ->send(new ContactMail($details['name']));
 
         return 1;
     }
