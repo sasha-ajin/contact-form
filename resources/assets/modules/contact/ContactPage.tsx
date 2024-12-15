@@ -1,7 +1,6 @@
 import React, { useMemo, useState, useCallback } from 'react';
 import { ContactResponse, ContactValues } from '@/modules/contact/models';
 import { FormTextControl } from '@/components/Form/FormTextControl';
-import '@/utils/setupValidator';
 import { useForm } from '@/components/Form/useForm';
 import { FormikHelpers, FormikProvider } from 'formik';
 import Form from 'react-bootstrap/Form';
