@@ -3,15 +3,13 @@
 namespace Tests\Unit;
 
 use App\Mail\ContactMail;
-use Illuminate\Foundation\Testing\RefreshDatabase;
+use App\Models\Contact;
 use Illuminate\Support\Facades\Mail;
 use Tests\TestCase;
 
 
 class ContactControllerStoreTest extends TestCase
 {
-    use RefreshDatabase;
-
     /**
      * Test submission with empty fields
      */
@@ -66,6 +64,9 @@ class ContactControllerStoreTest extends TestCase
             'phone' => '+359878726955',
             'message' => 'This is a test message',
         ]);
+
+        Contact::where('id', $contactID)
+            ->delete();
 
         Mail::assertQueued(ContactMail::class, function ($mail) use ($payload) {
             return $mail->hasTo(env('MAIL_TO_ADDRESS', 'mailtrap@gmail.com'));
