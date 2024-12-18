@@ -55,7 +55,7 @@ export function ContactPage() {
                 handleShowModal();
             }
         },
-        [], // eslint-disable-line react-hooks/exhaustive-deps
+        [],
     );
 
     const formik = useForm<ContactValues>({
