@@ -43,6 +43,7 @@ export function ContactPage() {
             }),
         [],
     );
+
     const handleSubmit = useCallback(
         async (values: ContactValues, formikHelpers: FormikHelpers<ContactValues>) => {
             const submitWithValidation = handleBackEndValidation<ContactValues>(async (values) => {

@@ -8,6 +8,6 @@ import '@/utils/setupValidator';
 axios.defaults.baseURL = 'http://localhost:8000';
 
 if (document.getElementById('root')) {
-    const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement); // Updated usage
+    const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
     root.render(<App />);
 }
